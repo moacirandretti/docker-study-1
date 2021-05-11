@@ -1,13 +1,7 @@
-FROM node:latest
+FROM node:latest AS meulindoapp
 
 WORKDIR /home/app
 
 COPY package.json ./
 
-RUN yarn
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["yarn", "start"]
+CMD bash -c "yarn && yarn start"
