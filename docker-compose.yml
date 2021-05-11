@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  meulindoapp:
+    build: .
+    command: yarn start
+    container_name: container_estudo_docker_sequelize
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/home/app
+
+  bd:
+    image: postgres:latest
+    container_name: postgres_estudos_docker
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    env_file:
+      - database.env
