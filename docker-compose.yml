@@ -15,3 +15,15 @@ services:
     environment:
       - TESTE=envteste
 
+  meubdpostgres:
+    image: postgres:latest
+    container_name: postgres2_estudos_docker
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    env_file:
+      - database.env
+    ports:
+      - 5460:5432
+volumes:
+  database-data:
+
